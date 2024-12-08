@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro Jurídico - Contacto</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9; 
+            color: #333;
+        }
+        header {
+            background-color: #4335A7; 
+            color: #fff;
+            padding: 3em 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase; 
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #4335A7;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        nav ul li a:hover {
+            background-color: #5a47c9; 
+            transform: scale(1.05); 
+        }
+        section {
+            padding: 2em;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 1em;
+            color: #4335A7; 
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+        }
+        form {
+            background-color: #fff;
+            padding: 2em;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #4335A7; 
+        }
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        form input:focus,
+        form textarea:focus {
+            border-color: #4335A7; 
+            outline: none;
+            box-shadow: 0 0 5px rgba(67, 53, 167, 0.3);
+        }
+    
+        form textarea {
+            resize: none; 
+            height: 100px; 
+        }
+    
+        form button {
+            background-color: #4335A7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        form button:hover {
+            background-color: #5a47c9;
+            transform: scale(1.05); 
+        }
+    
+        #resultado {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: none; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+    
+        #resultado h3 {
+            color: #4335A7;
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+    
+        
+        footer {
+            background-color: #4335A7;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
+            font-size: 1em;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); 
+        }
+    
+        footer p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+           
+</head>
+
+<body>
+    <header>
+        <h1>Contacto</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="HTML.html">Inicio</a></li>
+            <li><a href="consultas.html">Consultas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Contáctanos</h2>
+        <p>
+            Para consultas generales, envíanos un correo a 
+            <a href="mailto:zunigameli688@gmail.com">zunigameli688@gmail.com</a>.
+        </p>
+        <p>O llámanos al: <strong>(+593) 999288489</strong></p>
+        <p>Estamos disponibles de lunes a viernes, de 9:00 AM a 6:00 PM.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Foro Jurídico. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

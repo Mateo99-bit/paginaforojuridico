@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro Jurídico - Consultas</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9; 
+            color: #333;
+        }
+        header {
+            background-color: #4335A7; 
+            color: #fff;
+            padding: 3em 0;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase; 
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #4335A7;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        nav ul li a:hover {
+            background-color: #5a47c9; 
+            transform: scale(1.05); 
+        }
+        section {
+            padding: 2em;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 1em;
+            color: #4335A7; 
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+        }
+        form {
+            background-color: #fff;
+            padding: 2em;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #4335A7; 
+        }
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        form input:focus,
+        form textarea:focus {
+            border-color: #4335A7; 
+            outline: none;
+            box-shadow: 0 0 5px rgba(67, 53, 167, 0.3);
+        }
+    
+        form textarea {
+            resize: none; 
+            height: 100px; 
+        }
+    
+        form button {
+            background-color: #4335A7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            margin: 0 auto;
+        }
+    
+        form button:hover {
+            background-color: #5a47c9;
+            transform: scale(1.05); 
+        }
+    
+        #resultado {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: none; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+    
+        #resultado h3 {
+            color: #4335A7;
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+    
+        
+        footer {
+            background-color: #4335A7;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
+            font-size: 1em;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); 
+        }
+    
+        footer p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+     
+</head>
+
+<body>
+    <header>
+        <h1>Consultas Jurídicas</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="HTML.html">Inicio</a></li>
+            <li><a href="consultas.html">Consultas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Realiza tu Consulta</h2>
+        <form onsubmit="buscarConsulta(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+            <label for="consulta">Consulta:</label>
+            <textarea id="consulta" name="consulta" rows="4" placeholder="Escribe tu consulta aquí" required></textarea>
+
+            <button type="submit">Enviar Consulta</button>
+        </form>
+
+        <div id="resultado">
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Foro Jurídico. Todos los derechos reservados.</p>
+    </footer>
+</body>
+<script>
+    const informacion = {
+        "Incumplimiento de los contratos": "Este quiere decir que cuando una de las partes no cumple con los términos establecidos en un contrato, el Derecho Civil ofrece recursos legales para hacer valer los derechos de la parte perjudicada, como la rescisión del contrato o el pago de daños y perjuicios.",
+        "¿Qué puede evitar acudir a la corte?": "La inclusión de una cláusula penal de incumplimiento contractual nos puede evitar tener que acudir a los Tribunales para pedir daños y perjuicios. Al incluir dicha cláusula en el contrato bastará con que se produzca el incumplimiento contractual para que se aplique.",
+        "Reformas de leyes": "Proyectos de ley Dentro de las atribuciones señaladas en la Constitución de la República del Ecuador, artículo 184 y de las constantes en el artículo 180 del Código Orgánico de la Función Judicial, una de las funciones trascendentales de la Corte Nacional de Justicia, es la de presentar proyectos de ley relacionados con el sistema de administración de justicia, en tal virtud, la Corte tiene la facultad de discutir y aprobar proyectos de ley relacionados con el sistema de administración de justicia; y presentarlos por medio de su Presidenta o Presidente a la Asamblea Nacional.",
+        "¿Qué es la jurisprudencia?": "La jurisprudencia se refiere a la interpretación obligatoria de la ley que surge de las resoluciones emitidas por la Suprema Corte de Justicia de la Nación, ya sea en Pleno o en Salas, y por los Tribunales Colegiados de Circuito. En términos jurídicos, la jurisprudencia puede ser confirmatoria, supletoria e interpretativa. Estas ayudan a clasificarlas, interpretadas y adaptarlas a nuevas situaciones.",
+        "¿Por qué se da la jurisprudencia?": "Los cambios de criterio en la jurisprudencia son una consecuencia lógica de la propia evolución de la sociedad, y de lo que se consideran en cada momento como principios generales del Derecho. No obstante, muchas veces se plantea si estos cambios pueden afectar a los derechos adquiridos por los ciudadanos.",
+        "¿Qué son los fallos de tripe reiteración?": "En ecuador existe los fallos de tripe reiteración que son sentencias emitidas por las salas especializadas de la Corte Nacional de Justicia que reiteren por tres ocasiones la misma opinión sobre un mismo punto de derecho, obligarán a remitir los fallos al Pleno de la Corte a fin de que éste delibere y decida en el plazo de sesenta días sobre su conformidad. Si en dicho plazo no se pronuncia, o si ratifica el criterio, esta opinión constituirá jurisprudencia obligatoria. Lo que expresa más claro en el siguiente articulo emitido por la constitución. ",
+        "¿Qué dice el Art.185 de la constitución?": "Que el artículo 185 de la Constitución establece que las sentencias emitidas por las Salas especializadas de la Corte Nacional de Justicia que reiteren por tres ocasiones la misma opinión sobre un mismo punto de derecho, obligarán a remitir el fallo al Pleno de la Corte a fin de que ésta delibere y decida en el plazo de hasta sesenta días sobre su conformidad. Si en dicho plazo no se pronuncia, o sí ratifica el criterio, esta opinión constituirá jurisprudencia obligatoria, esto es, tendrá vigencia erga omnes. Que el mismo artículo 185 de la Constitución, en su parte final, establece que para cambiar un criterio jurisprudencial obligatorio, la jueza o juez ponente se sustentará en razones jurídicas motivadas que justifiquen el cambio, y su fallo deberá ser aprobado de forma unánime por la sala. ",
+        "Art.182 del código orgánico de la función judicial": "Que el artículo 182 del Código Orgánico de la Función Judicial prescribe que el fallo que cambie un criterio jurisprudencial, deberá ponerse de inmediato en conocimiento del Pleno, el cual decidirá si se deja o no sin efecto el precedente obligatorio cuyo criterio se ha cambiado, o si se trata de una cuestión nueva que no se halla comprendida en dicho precedente. ",
+        "¿Los artículos que da la constitución de el ecuador son leyes?": "LOS ARTICULOS QUE EXPRESA LA Constitución DEL ECUADOR NO TODOS SON LEYES, SINO QUE ES EL “el marco normativo superior al cual deben ajustarse todas las leyes y reglamentos del país. Sin embargo, para poner en práctica muchos de estos principios y derechos, se necesita la creación de leyes específicas y detalladas que desarrollen y regule lo que la Constitución”",
+        "Derecho penal": "¿Cuál es una las leyes principales para que se pueda ejercer el derecho penal? En todas las normas legales y en la presente Ley cuando se mencione La Comisión Nacional de Transporte Terrestre, Tránsito y Seguridad Vial, se entenderá que se refiere a La Agencia Nacional de Regulación y Control del Transporte Terrestre, Tránsito y Seguridad Vial (ANRCTTTSV), que también podrá ser conocida como Agencia Nacional de Tránsito A.N.T.",
+        "Derecho constitucional": "¿Qué leyes tienen más peso para que se pueda aplicar en el derecho constitucional? Las que tienen más peso en esta rama de derecho son; La constitución y la ley de garantías jurisdiccionales y control constitucional. ",
+        "¿Qué es la constitución?": "la constitución del ecuador es la norma suprema que manda en el país, siendo esta la más importante, cada juez para dar una sentencia debe basarse en esta, como cada abogado para defender debe seguir los artículos que están en esta. La constitución marca la línea de las estructuras, ya que la ley aplica de acuerdo a el lugar donde se del delito, sabiendo recalcar que una ley menor no puede romper lo que dice la constitución, porque si una ley no tiene validez con la constitución no tiene fundamentos.",
+        "¿Qué es la ley de garantías jurisdiccionales y control constitucional?": "Art. 1.- Objeto y finalidad de la ley. - Esta ley tiene por objeto regular la jurisdicción constitucional, con el fin de garantizar jurisdiccionalmente los derechos reconocidos en la Constitución y en los instrumentos internacionales de derechos humanos y de la naturaleza; y garantizar la eficacia y la supremacía constitucional.",
+        "¿Qué expresa en el Art. 9 de la ley de garantías jurisdiccionales y control constitucional?": "Art. 9.- Legitimación activa. - Las acciones para hacer efectivas las garantías jurisdiccionales previstas en la Constitución y esta ley, podrán ser ejercidas:a) Por cualquier persona, comunidad, pueblo, nacionalidad o colectivo, quien actuará por sí misma o a través de representante o apoderado; y, b) Por el Defensor del Pueblo. Se consideran personas afectadas quienes sean víctimas directas o indirectas de la violación de derechos que puedan demostrar daño. Se entenderá por daño la consecuencia o afectación que la violación al derecho produce. En el caso de las acciones de hábeas corpus y extraordinaria de protección, se estará a las reglas específicas de legitimación que contiene esta ley.",
+        "¿Qué expresa en el Art. 72 de la ley de garantías jurisdiccionales y control constitucional?": "Art. 72.- Sentencia. - En la sentencia se declarará, de encontrar fundamentos, la responsabilidad de la persona o personas demandadas por la violación de derechos que generaron la obligación del Estado de reparar materialmente y, además ordenará a la persona o personas responsables, pagar al Estado lo erogado por concepto de reparación material, estableciendo la forma y el tiempo en que deberá realizarse.",
+        "Ley influente de derecho laboral": "Ley influente de derecho laboral Ley orgánica de servicio publico LOSEP Art. 1.- Principios. - La presente Ley se sustenta en los principios de: calidad, calidez, competitividad, continuidad, descentralización, desconcentración, eficacia, eficiencia, equidad, igualdad, jerarquía, lealtad, oportunidad, participación, racionalidad, responsabilidad, solidaridad, transparencia, unicidad y universalidad que promuevan la interculturalidad, igualdad y la no discriminación.",
+        "Art.90 de la Ley orgánica de servicio público LOSEP": "Art. 90.- Derecho a demandar. - La servidora o servidor público, sea o no de carrera, tendrá derecho a demandar el reconocimiento y reparación de los derechos que consagra esta Ley, en el término de noventa días contados desde la notificación del acto administrativo. Sin perjuicio de las acciones constitucionales que tiene derecho. La demanda se presentará ante la Sala Distrital de lo Contencioso Administrativo del lugar donde se originó el acto administrativo impugnado o del lugar en donde ha generado efecto dicho acto. Este derecho podrá ejercitarlo la servidora o servidor, sin perjuicio de requerir a la autoridad competente de la entidad pública que revea el acto administrativo que lesiona sus derechos.",
+        "Norma influyente del derecho civil": "Código del comercio Art. 1.- El Código de Comercio rige las obligaciones de los comerciantes en sus operaciones mercantiles, y los actos y contratos de comercio, aunque sean ejecutados por no comerciantes.",
+        "Art. 131 de la ley del código del comercio": "Art. 131.- La violación de las instrucciones, la aprobación del resultado de una negociación, o el abuso de confianza de parte de los factores o dependientes, no exonera a sus principales de la obligación de llevar a ejecución los contratos que aquéllos hagan a nombre de estos. ",
+        "Art. 184 (Precio) de la ley del código del comercio": "Art. 184.- No hay compraventa si los contratantes no convienen en el precio o en la manera de determinarlo; pero si la cosa vendida fuere entregada, se presume que las partes han aceptado el precio corriente que tenga en el día y lugar en que se hubiere celebrado el contrato.Habiendo diversidad de precios en los mismos días y lugar, el comprador deberá pagar el precio medio.Esta regla es también aplicable al caso en que las partes se refieran al precio que tenga la cosa en tiempo y lugar diversos del tiempo y lugar del contrato.",
+        "Derecho civil": "Empecemos aclarando que el derecho civil es la rama fundamental del sistema legal ya que regula los derechos y obligaciones entre individuos, así como las relaciones jurídicas de carácter privado este incluye una gama de áreas, incluyendo contratos, propiedades, familia, obligaciones. Nos brinda seguridad jurídica al establecer reglas claras para resolver conflictos y proteger nuestros derechos. Además, proporciona un marco legal para proteger a las partes más vulnerables en situaciones como el matrimonio, el divorcio o la herencia.",
+        "Derecho laboral": "El derecho laboral aborda las relaciones entre trabajadores y empleadores. En Ecuador, está regulado por el Ministerio del Trabajo y respaldado por la Constitución para proteger a los trabajadores y promover un entorno laboral justo y equitativo."
+    };
+    function buscarConsulta(event) {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        const consulta = document.getElementById("consulta").value.trim(); // Obtener el contenido del textarea
+        const resultadoDiv = document.getElementById("resultado");
+
+        const resultado = informacion[consulta] || "No se encontró información para la consulta ingresada.";
+        resultadoDiv.style.display = "block"; // Asegurarse de que se muestre el resultado
+        resultadoDiv.innerHTML = `<h3>Resultado:</h3><p>${resultado}</p>`;
+    
+    }
+</script>
+</html>
